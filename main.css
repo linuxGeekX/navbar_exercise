@@ -1,0 +1,37 @@
+html {
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+}
+
+ul {
+	list-style-type: none;
+	overflow: hidden;
+	background-color: rgb(39, 65, 88);
+	width: 100%;
+	position: fixed;
+	top: 0;
+}
+
+ul  li {
+	float: left;
+	width: 19%;
+}
+
+ul  li  a {
+	display: inline-block;
+	text-align: left;
+	padding: 4px 8px 4px 8px;
+	transition: 0.3s;
+	width: 97%
+}
+
+ul  li  a:hover {
+	background-color: rgb(58, 84, 108);
+}
+
+li:not(:first-child) {
+	border-style: solid;
+	border-top-width: 0px 0px 0px 1px;
+	border-color: rgb(53, 79, 103);
+}
