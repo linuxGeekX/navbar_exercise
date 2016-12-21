@@ -3,16 +3,44 @@
 		<title>Navbar Exercise</title>
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
 		<script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-		<link rel="stylesheet" type="text/css" href="main.css">
+		<link rel="stylesheet" type="text/css" href="main.css" />
 		<script src="main.js"></script>
 	</head>
 	<body>
-		<ul>
-			<li><a>Dashboard</a></li>
-			<li><a>Resources</a></li>
-			<li><a>Reporting</a></li>
-			<li><a>Admin</a></li>
-			<li><a>Operator</a></li>
-		</ul>
+		<div id="topBar">
+			<p id="breadcrumbs">Overview > All > Servers</p>
+			<ul id=ddMain>
+				<li>Dashboard</li>
+				<li>
+					<a>Resources</a>
+					<ul class="ddMenu">
+						<li>Overview</li>
+						<li>All</li>
+						<li>Servers</li>
+						<li>Network</li>
+						<li>Storage</li>
+						<li>Compute Pools</li>
+						<li>Appliances</li>
+					</ul>
+				</li>
+				<li>
+					<a>Reporting</a>
+					<ul class="ddMenu">
+						<li>Logs</li>
+					</ul>
+				</li>
+				<li>
+					<a>Admin</a>
+					<ul class="ddMenu">
+						<li>Accounts</li>
+						<li>Applications</li>
+						<li>Departments</li>
+						<li>Access Control</li>
+						<li>Metadata</li>
+					</ul>
+				</li>
+				<li>Operator</li>
+			</ul>
+		</div>
 	</body>
 </html>
