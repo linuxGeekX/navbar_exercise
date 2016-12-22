@@ -1,30 +1,29 @@
 (function($) {
 	function buildDD(data) {
 		function buildItem(index, ddItem) {
-			console.log(ddItem);
-			var ddStr = '';
-			ddStr += '<li';
-			if(ddItem.hasOwnProperty('class_name')) {
-				ddStr += ' class="' + ddItem['class_name'] + '"';
-			}
-			ddStr += '><a';
-			if(ddItem['href'] !== null) {
-				ddStr += ' href="' + ddItem['href'] +'"';
-			}
-			ddStr += '>' + ddItem.title + '</a>'
+			$('<li></li>', {
+				'id': 'ddItem' + index,
+				'class': ddItem.class_name
+			}).appendTo('#ddMain');
+			$('<a></a>', {
+				'href': ddItem.href,
+				'text': ddItem.title
+			}).appendTo('li#ddItem' + index);
 			if(ddItem.hasOwnProperty('menu')) {
-				ddStr += '<ul class="ddMenu">';
-				$.each(ddItem.menu, function(index, menuItem) {
-					ddStr += '<li><a href="' + menuItem['href'] +'">' + menuItem['title'] + '</a></li>';
+				$('<ul></ul>', {
+					'class': 'ddMenu',
+				}).appendTo('li#ddItem' + index);
+				$.each(ddItem.menu, function(index2, menuItem) {
+					var newLI = $('<li></li>');
+					$('<a></a>', {
+						'href': menuItem.href,
+						'text': menuItem.title
+					}).appendTo(newLI);
+					newLI.appendTo('li#ddItem' + index2 + ' > ul.ddMenu');
 				});
-				ddStr += '</ul>';
 			}
-			ddStr += '</li>';
-			console.log(ddStr);
-			$('#ddMain').append(ddStr);
 		}
 		$.each(data, buildItem);
 	}
-
 	$.getJSON('menu.json', buildDD);
 })(jQuery);
